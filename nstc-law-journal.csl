@@ -708,60 +708,50 @@
   </macro>
   <macro name="source-zh">
     <choose>
-      <if type="article-journal article-magazine" match="any">
-        <group delimiter="：">
+     <if type="article-journal article-magazine" match="any">
+        <group delimiter="，">
           <text macro="author-zh"/>
-          <group delimiter="，">
-            <text macro="title-zh"/>
-            <text macro="secondary-contributors-zh"/>
-            <text macro="container-zh"/>
-            <text macro="locator-zh"/>
-          </group>
+          <text macro="secondary-contributors-zh"/>
+          <text macro="title-zh"/>
+          <text macro="container-zh"/>
+          <text macro="locator-zh"/>
         </group>
       </if>
       <else-if type="article-newspaper">
-        <group delimiter="：">
+        <group delimiter="，">
           <text macro="author-zh"/>
-          <group delimiter="，">
             <text macro="title-zh"/>
             <text macro="secondary-contributors-zh"/>
             <text macro="container-zh"/>
             <text macro="locator-or-page-zh"/>
-          </group>
         </group>
       </else-if>
       <else-if type="chapter paper-conference" match="any">
-        <group delimiter="：">
+        <group delimiter="，">
           <text macro="author-zh"/>
-          <group delimiter="，">
             <text macro="title-zh"/>
             <text macro="secondary-contributors-zh"/>
             <text macro="container-zh"/>
             <text macro="publisher-zh"/>
             <text macro="locator-zh"/>
-          </group>
         </group>
       </else-if>
       <else-if type="book thesis" match="any">
-        <group delimiter="：">
+        <group delimiter="，">
           <text macro="author-zh"/>
-          <group delimiter="，">
             <text macro="title-zh"/>
             <text macro="secondary-contributors-zh"/>
             <text macro="publisher-zh"/>
             <text macro="locator-zh"/>
-          </group>
         </group>
       </else-if>
       <!-- 49. 引用个人博客、微信公众号 -->
       <else-if type="post post-weblog webpage" match="any">
-        <group delimiter="：">
           <text macro="author-zh"/>
           <group delimiter="，">
             <text macro="title-zh"/>
             <text macro="container-zh"/>
             <text macro="access-zh"/>
-          </group>
         </group>
       </else-if>
       <!-- (四)引用法律文件 -->
@@ -830,9 +820,8 @@
         </group>
       </else-if>
       <else-if type="report">
-        <group delimiter="：">
+        <group delimiter="，">
           <text macro="author-zh"/>
-          <group delimiter="，">
             <text macro="title-zh"/>
             <group>
               <text macro="issuance-zh"/>
@@ -847,7 +836,6 @@
                 </if>
               </choose>
             </group>
-          </group>
         </group>
       </else-if>
       <!-- 65. 引用国家标准 -->
@@ -886,14 +874,12 @@
         </group>
       </else-if>
       <else>
-        <group delimiter="：">
+        <group delimiter="，">
           <text macro="author-zh"/>
-          <group delimiter="，">
-            <text macro="title-zh"/>
-            <text macro="container-zh"/>
-            <text macro="publisher-zh"/>
-            <text macro="locator-zh"/>
-          </group>
+          <text macro="title-zh"/>
+          <text macro="container-zh"/>
+          <text macro="publisher-zh"/>
+          <text macro="locator-zh"/>
         </group>
       </else>
     </choose>
