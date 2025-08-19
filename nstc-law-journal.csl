@@ -243,7 +243,7 @@
         <group delimiter="">
           <text variable="URL"/>
 		  <!-- 依規則 2.15 網路文獻所示，除已提供 Web Archive 存檔者外，均應標註最後瀏覽日 -->
-          <group prefix="（" suffix="）", delimiter="：">
+          <group prefix="（" suffix="）" delimiter="：">
                 <text term="accessed" />
                 <date variable="accessed">
                   <!-- 依通則 2.1.4 ，年月日採 YYYY/MM/DD 格式標註 -->
