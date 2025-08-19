@@ -19,7 +19,7 @@
     <category citation-format="note"/>
     <category field="law"/>
     <summary>1. 預設文獻語言是中文，若為其它語言文獻，請在 `language` 欄位填寫對應的語言代碼（en, ja, de, fr）。2. 各類型文獻的欄位資料填寫方式，可以參考 Zotero 社群「Chinese CSL development」的「法学引注手册」分類，其中有收錄《手册》的範例文獻資料。3. 中國大陸最高人民法院发布的指导性案例，需要连同“案例编号”、”发布时间”（注意区别于”裁判时间”）分别在填写在 `Extra` 中的 `Series`, `Series Number` 和 `available-date` 字段。4. 中國大陸《最高人民法院公报》上的案例，发布时间和期号需要分别填写在 `Extra` 的 `available-date` 和 `Issue` 字段。5. 實務見解的書類名稱，請填寫於 `Extra` 的 `Genre` 的欄位，比如 `Genre: 訴願決定書`、`Genre: 刑事判決`。6. 英国案例和法文文献的支持尚不完善，需要测试反馈。7. 德文的“法律评注”使用 book section 文献类型，并将标题留空。8. 德文的“祝贺文集“与“纪念文集”使用 book section 文献类型，但需要将书名填在 `Series` 字段。9. 國科會人文處似未公告統一版本，此檔案係依臺北大學法學論叢版本製作。</summary>
-    <updated>2025-08-19T13:00:00+08:00</updated>
+    <updated>2025-08-19T15:10:00+08:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/4.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 License</rights>
   </info>
   <locale xml:lang="de">
@@ -1792,11 +1792,14 @@
     </choose>
   </macro>
   <macro name="citation-number">
-    <text variable="citation-number" prefix="〔" suffix="〕"/>
+    <text variable="citation-number" suffix="."/>
   </macro>
   <!-- 作者人数为两人或者三人的，一一列明。 -->
   <!-- 作者人数众多，不便全部列明的，可以根据情况列 1-2 个，后面加“等”。 -->
   <citation et-al-min="4" et-al-use-first="2">
+    <layout suffix="." delimiter="; " locale="en">
+      <text macro="citation-layout-en"/>
+    </layout>
     <layout suffix="." delimiter="; " locale="de">
       <text macro="citation-layout-de"/>
     </layout>
@@ -1806,14 +1809,15 @@
     <layout suffix="。" delimiter="；" locale="ja">
       <text macro="citation-layout-ja"/>
     </layout>
-    <layout suffix="。" delimiter="；" locale="zh">
+    <layout suffix="。" delimiter="；">
       <text macro="citation-layout-zh"/>
-    </layout>
-    <layout suffix="." delimiter="; ">
-      <text macro="citation-layout-en"/>
     </layout>
   </citation>
   <bibliography second-field-align="flush" et-al-min="6" et-al-use-first="2">
+    <layout locale="en">
+      <text macro="citation-number"/>
+      <text macro="source-en" suffix="."/>
+    </layout>
     <layout locale="de">
       <text macro="citation-number"/>
       <text macro="source-de" suffix="."/>
@@ -1826,13 +1830,9 @@
       <text macro="citation-number"/>
       <text macro="source-ja" suffix="。"/>
     </layout>
-    <layout locale="zh">
-      <text macro="citation-number"/>
-      <text macro="source-zh" suffix="。"/>
-    </layout>
     <layout>
       <text macro="citation-number"/>
-      <text macro="source-en" suffix="."/>
+      <text macro="source-zh" suffix="。"/>
     </layout>
   </bibliography>
 </style>
