@@ -1,2 +1,17 @@
-# csl-nstc-law
-The CSL file of NSTC Law Journal Citation Style (國科會人文處法律學門「法學期刊引註格式」)
+# NSTC Law Journal Citation Style CSL
+
+This repository provides the **Citation Style Language (CSL) file for the "NSTC Law Journal Citation Style"**, developed by the Law Division of the Taiwan National Science and Technology Council.
+
+本專案提供國科會人文處法律學門擬定之《法學期刊引註格式》 的 Citation Style Language (CSL) 檔案，方便研究者於 Zotero 等文獻管理軟體中使用。
+
+The CSL file in this project is adapted from the "法学引注手册（多语言）" CSL style developed by Zeping Lee and licensed under CC BY-SA 3.0. This project is released under the CC BY-SA 4.0 license.
+
+本專案的 CSL 檔案，是基於 Zeping Lee 開發的「法学引注手册（多语言）」 CSL 檔案（採用 CC BY-SA 3.0 授權）修改而成，採用 CC BY-SA 4.0 授權。
+
+Currently, this project only supports citation formatting for Chinese references. Citation formats for English, Japanese, German, and French references remain unchanged and follow the original 法学引注手册（多语言） style.
+
+本專案目前僅支持中文文獻引註，英、日、德、法引註格式仍依「法学引注手册（多语言）」版本，尚未修改。
+
+If you find any formatting errors or have suggestions for improvement, please open an issue or submit a pull request.
+
+如果發現格式錯誤或有改進建議，歡迎提出 Issues 或提交 Pull Request。
