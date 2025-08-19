@@ -1206,7 +1206,7 @@
     <choose>
       <if type="article-journal article-magazine" match="any">
         <text term="in"/>
-        <text variable="container-title" prefix="《" suffix="》"/>
+		<text variable="container-title" prefix="《" suffix="》" />
         <text macro="issuance-zh"/>
         <text macro="issue-zh"/>
       </if>
@@ -1327,7 +1327,7 @@
     <choose>
       <if is-numeric="volume">
         <text value="第"/>
-        <number variable="volume"/>
+		<number variable="volume"/>
         <label variable="volume" form="short"/>
       </if>
       <else>
@@ -1361,7 +1361,7 @@
     <choose>
       <if is-numeric="issue">
         <text value="第"/>
-        <number variable="issue"/>
+		<number variable="issue"/>
         <choose>
           <if type="chapter paper-conference" match="any">
             <text value="辑"/>
@@ -1768,41 +1768,31 @@
   </macro>
   <macro name="citation-layout-zh">
     <choose>
-      <if position="ibid-with-locator">
-        <text term="ibid"/>
-        <text macro="locator-zh" prefix="，"/>
+      <if position="ibid">
+        <group delimiter="，">
+		  <text macro="author-short-zh" />
+		  <group>
+		    <text term="op-cit"/>
+			<text variable="first-reference-note-number" />
+	      </group>
+		</group>
       </if>
-      <else-if position="ibid">
-        <text term="ibid"/>
-      </else-if>
       <else-if position="subsequent">
-        <choose>
-          <if disambiguate="true">
-            <group delimiter="，">
-              <group>
-                <text term="op-cit"/>
-                <text variable="first-reference-note-number" prefix="〔" suffix="〕"/>
-              </group>
-              <group delimiter="：">
-                <text macro="author-short-zh"/>
-                <text variable="title" form="short" prefix="《" suffix="》"/>
-              </group>
-              <text macro="locator-zh"/>
-            </group>
-          </if>
-          <else>
-            <group delimiter="，">
-              <group>
-                <text term="op-cit"/>
-                <text variable="first-reference-note-number" prefix="〔" suffix="〕"/>
-              </group>
-              <text macro="author-short-zh" suffix="书"/>
-              <text macro="locator-zh"/>
-            </group>
-          </else>
-        </choose>
+        <group delimiter="，">
+		  <text macro="author-short-zh" />
+		  <choose>
+		    <if disambiguate="true">
+			  <text variable="title" form="short" />
+			</if>
+		  </choose>
+		  <group>
+		    <text term="op-cit"/>
+			<text variable="first-reference-note-number" />
+	      </group>
+		  <text macro="locator-zh"/>
+		</group>
       </else-if>
-      <else>
+	  <else>
         <text macro="source-zh"/>
       </else>
     </choose>
