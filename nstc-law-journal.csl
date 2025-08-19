@@ -942,18 +942,11 @@
   <macro name="title-zh">
     <choose>
       <if type="webpage">
-        <choose>
-          <if variable="container-title">
-            <text variable="title" prefix="《" suffix="》"/>
-          </if>
-          <else>
-            <text variable="title"/>
-          </else>
-        </choose>
-        <text macro="edition-zh" prefix="（" suffix="）"/>
+        <text variable="title"/>
+        <text macro="edition-zh" prefix="，" />
       </if>
       <else-if type="legislation treaty" match="any">
-        <text variable="title" form="short" prefix="《" suffix="》"/>
+        <text variable="title" form="short" />
         <group prefix="（" suffix="）">
           <choose>
             <if variable="edition">
@@ -966,7 +959,7 @@
         </group>
       </else-if>
       <else-if type="regulation">
-        <text variable="title" form="short" prefix="《" suffix="》"/>
+        <text variable="title" form="short" />
         <group prefix="（" suffix="）">
           <choose>
             <if variable="edition">
@@ -986,8 +979,8 @@
         <text variable="title"/>
       </else-if>
       <else>
-        <text variable="title" prefix="《" suffix="》"/>
-        <group prefix="（" suffix="）">
+        <text variable="title" />
+        <group prefix="，">
           <text macro="edition-zh"/>
           <choose>
             <if type="chapter paper-conference" variable="container-title" match="none">
@@ -1183,37 +1176,34 @@
           <else>
             <!-- 《最高人民法院公报》 -->
             <text term="in"/>
-            <text variable="container-title" prefix="《" suffix="》"/>
+            <text variable="container-title" />
             <text macro="issuance-zh"/>
             <text macro="issue-zh"/>
           </else>
         </choose>
       </else-if>
-      <else-if type="post post-weblog webpage" match="any">
-        <!-- 2020 年版的网络文献和微信公众号文章的网站标题与上传日期之间均无逗号 -->
-        <text term="in"/>
+      <else-if type="post post-weblog webpage" match="any" delimiter="，">
         <text variable="container-title"/>
         <text macro="issuance-zh"/>
       </else-if>
       <else>
         <text term="in"/>
-        <text variable="container-title" prefix="《" suffix="》"/>
+        <text variable="container-title" />
       </else>
     </choose>
   </macro>
   <macro name="container-zh">
     <choose>
-      <if type="article-journal article-magazine" match="any">
-        <text term="in"/>
-		<text variable="container-title" prefix="《" suffix="》" />
+      <if type="article-journal article-magazine" match="any" delimiter="，">
+		<text variable="container-title" />
         <text macro="issuance-zh"/>
         <text macro="issue-zh"/>
       </if>
-      <else-if type="chapter paper-conference" match="any">
+      <else-if type="chapter paper-conference" match="any" delimiter="，">
         <text term="in"/>
-        <group delimiter="：">
+        <group delimiter="，">
           <text macro="editor-zh"/>
-          <text variable="container-title" prefix="《" suffix="》"/>
+          <text variable="container-title" />
         </group>
         <text macro="volume-zh"/>
         <text macro="issue-zh"/>
@@ -1256,19 +1246,15 @@
         </choose>
       </else-if>
       <else-if type="article-newspaper">
-        <text term="in"/>
-        <text variable="container-title" prefix="《" suffix="》"/>
+        <text variable="container-title" />
         <text macro="issuance-zh"/>
       </else-if>
       <else-if type="post webpage" match="any">
-        <!-- 2020 年版的网络文献和微信公众号文章的网站标题与上传日期之间均无逗号 -->
-        <text term="in"/>
         <text variable="container-title"/>
         <text macro="issuance-zh"/>
       </else-if>
       <else-if type="post-weblog">
         <!-- 49. 引用个人博客、微信公众号 -->
-        <text term="in"/>
         <choose>
           <if variable="genre">
             <text variable="genre"/>
@@ -1281,8 +1267,7 @@
         <text macro="issuance-zh"/>
       </else-if>
       <else>
-        <text term="in"/>
-        <text variable="container-title" prefix="《" suffix="》"/>
+        <text variable="container-title" />
       </else>
     </choose>
   </macro>
