@@ -60,9 +60,9 @@
   </locale>
   <locale xml:lang="zh">
     <date form="text">
-      <date-part name="year" suffix="年" range-delimiter="&#8212;"/>
-      <date-part name="month" form="numeric" suffix="月" range-delimiter="&#8212;"/>
-      <date-part name="day" suffix="日" range-delimiter="&#8212;"/>
+      <date-part name="year" suffix="年" />
+      <date-part name="month" form="numeric" suffix="月" />
+      <date-part name="day" suffix="日" />
     </date>
     <terms>
       <term name="article-locator" form="short">条</term>  <!-- 《宪法》第十八条翻译为“Article 18” -->
