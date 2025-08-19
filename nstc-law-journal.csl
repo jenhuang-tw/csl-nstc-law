@@ -1326,7 +1326,6 @@
   <macro name="volume-zh">
     <choose>
       <if is-numeric="volume">
-        <text value="第"/>
 		<number variable="volume"/>
         <label variable="volume" form="short"/>
       </if>
@@ -1360,11 +1359,10 @@
   <macro name="issue-zh">
     <choose>
       <if is-numeric="issue">
-        <text value="第"/>
 		<number variable="issue"/>
         <choose>
           <if type="chapter paper-conference" match="any">
-            <text value="辑"/>
+            <text value="輯"/>
           </if>
           <else>
             <label variable="issue" form="short"/>
@@ -1595,17 +1593,20 @@
   </macro>
   <macro name="locator-zh">
     <choose>
-      <if is-numeric="locator">
-        <text value="第"/>
-        <text variable="locator"/>
+      <if locator="page" type="article-newspaper" match="all">
+	    <text variable="locator"/><text value="版"/>
+	  </if>
+	  <else-if is-numeric="locator">
         <choose>
-          <if locator="page" type="article-newspaper" match="all">
-            <text value="版"/>
-          </if>
+		  <if locator="page">
+		    <label variable="locator" form="short"/>
+			<text variable="locator"/>
+		  </if>
           <else>
-            <label variable="locator" form="short"/>
+            <text variable="locator"/>
+			<label variable="locator" form="short"/>
           </else>
-        </choose>
+		</choose>
       </if>
       <else>
         <text variable="locator"/>
