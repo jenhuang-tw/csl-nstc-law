@@ -1042,7 +1042,6 @@
   <macro name="edition-zh">
     <choose>
       <if is-numeric="edition">
-        <text value="第"/>
         <number variable="edition"/>
         <label variable="edition" form="short"/>
       </if>
