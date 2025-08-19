@@ -715,6 +715,7 @@
           <text macro="title-zh"/>
           <text macro="container-zh"/>
           <text macro="locator-zh"/>
+		  <text macro="issuance-zh" />
         </group>
       </if>
       <else-if type="article-newspaper">
@@ -724,6 +725,7 @@
             <text macro="secondary-contributors-zh"/>
             <text macro="container-zh"/>
             <text macro="locator-or-page-zh"/>
+			<text macro="issuance-zh" />
         </group>
       </else-if>
       <else-if type="chapter paper-conference" match="any">
@@ -734,6 +736,7 @@
             <text macro="container-zh"/>
             <text macro="publisher-zh"/>
             <text macro="locator-zh"/>
+		    <text macro="issuance-zh" />
         </group>
       </else-if>
       <else-if type="book thesis" match="any">
@@ -743,13 +746,15 @@
             <text macro="secondary-contributors-zh"/>
             <text macro="publisher-zh"/>
             <text macro="locator-zh"/>
+		    <text macro="issuance-zh" />
         </group>
       </else-if>
       <!-- 49. 引用个人博客、微信公众号 -->
       <else-if type="post post-weblog webpage" match="any">
-          <text macro="author-zh"/>
+          
           <group delimiter="，">
-            <text macro="title-zh"/>
+            <text macro="author-zh"/>
+			<text macro="title-zh"/>
             <text macro="container-zh"/>
             <text macro="access-zh"/>
         </group>
@@ -880,6 +885,7 @@
           <text macro="container-zh"/>
           <text macro="publisher-zh"/>
           <text macro="locator-zh"/>
+		  <text macro="issuance-zh"/>
         </group>
       </else>
     </choose>
@@ -1390,30 +1396,32 @@
     </group>
   </macro>
   <macro name="publisher-zh">
-    <text variable="publisher"/>
-    <choose>
-      <if type="post webpage" match="any">
-        <text macro="issuance-zh"/>
-      </if>
-      <else>
-        <text macro="issuance-zh"/>
-        <choose>
-          <if type="thesis">
+    <text variable="publisher" />
+	<choose>
+	  <if type="thesis">
             <choose>
-              <if variable="genre">
+              <!-- 碩士論文／博士論文 -->
+			  <if variable="genre">
                 <text variable="genre"/>
               </if>
               <else>
-                <text value="博士学位论文"/>
+                <text value="博士論文" />
               </else>
             </choose>
-          </if>
-          <else>
-            <text term="edition" form="short"/>
-          </else>
+      </if>
+	  <else-if value="edition" match="any">
+	    <text value="，" />
+		<choose>
+	      <if is-numeric="edition">
+		    <text variable="edition" />
+			<text term="edition" form="short" />
+		  </if>
+		  <else>
+		    <text variable="edition" />
+		  </else>
         </choose>
-      </else>
-    </choose>
+	  </else-if>
+	</choose>
   </macro>
   <macro name="issuance-de">
     <choose>
