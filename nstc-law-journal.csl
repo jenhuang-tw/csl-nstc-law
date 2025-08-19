@@ -12,10 +12,10 @@
       <name>Zeping Lee</name>
       <email>zepinglee@gmail.com</email>
     </author>
-    <author>
+    <contributor>
       <name>Jen Huang</name>
-      <name>jen.huang@tuta.com</name>
-    </author>
+      <email>jen.huang@tuta.com</email>
+    </contributor>
     <category citation-format="note"/>
     <category field="law"/>
     <summary>1. 預設文獻語言是中文，若為其它語言文獻，請在 `language` 欄位填寫對應的語言代碼（en, ja, de, fr）。2. 各類型文獻的欄位資料填寫方式，可以參考 Zotero 社群「Chinese CSL development」的「法学引注手册」分類，其中有收錄《手册》的範例文獻資料。3. 中國大陸最高人民法院发布的指导性案例，需要连同“案例编号”、”发布时间”（注意区别于”裁判时间”）分别在填写在 `Extra` 中的 `Series`, `Series Number` 和 `available-date` 字段。4. 中國大陸《最高人民法院公报》上的案例，发布时间和期号需要分别填写在 `Extra` 的 `available-date` 和 `Issue` 字段。5. 實務見解的書類名稱，請填寫於 `Extra` 的 `Genre` 的欄位，比如 `Genre: 訴願決定書`、`Genre: 刑事判決`。6. 英国案例和法文文献的支持尚不完善，需要测试反馈。7. 德文的“法律评注”使用 book section 文献类型，并将标题留空。8. 德文的“祝贺文集“与“纪念文集”使用 book section 文献类型，但需要将书名填在 `Series` 字段。9. 國科會人文處似未公告統一版本，此檔案係依臺北大學法學論叢版本製作。</summary>
@@ -1182,8 +1182,8 @@
           </else>
         </choose>
       </else-if>
-      <else-if type="post post-weblog webpage" match="any" delimiter="，">
-        <text variable="container-title"/>
+      <else-if type="post post-weblog webpage" match="any">
+        <text variable="container-title" suffix="，" />
         <text macro="issuance-zh"/>
       </else-if>
       <else>
@@ -1194,19 +1194,20 @@
   </macro>
   <macro name="container-zh">
     <choose>
-      <if type="article-journal article-magazine" match="any" delimiter="，">
-		<text variable="container-title" />
-        <text macro="issuance-zh"/>
-        <text macro="issue-zh"/>
+      <if type="article-journal article-magazine" match="any">
+		<text variable="container-title" suffix="，" />
+        <text macro="issuance-zh" suffix="，" />
+        <text macro="issue-zh" />
       </if>
-      <else-if type="chapter paper-conference" match="any" delimiter="，">
-        <text term="in"/>
-        <group delimiter="，">
-          <text macro="editor-zh"/>
-          <text variable="container-title" />
-        </group>
-        <text macro="volume-zh"/>
-        <text macro="issue-zh"/>
+      <else-if type="chapter paper-conference" match="any">
+        <group delimiter="，"><text term="in"/>
+		  <group delimiter="，">
+			<text macro="editor-zh"/>
+			<text variable="container-title" />
+		  </group>
+		  <text macro="volume-zh"/>
+		  <text macro="issue-zh"/>
+		</group>
       </else-if>
       <else-if type="legal_case">
         <choose>
@@ -1591,7 +1592,7 @@
 			<label variable="locator" form="short"/>
           </else>
 		</choose>
-      </if>
+      </else-if>
       <else>
         <text variable="locator"/>
       </else>
