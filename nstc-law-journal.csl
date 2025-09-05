@@ -1421,15 +1421,15 @@
               </else>
             </choose>
       </if>
-	  <else-if value="edition" match="any">
-	    <text value="，" />
+	  <else-if variable="edition" match="any">
+	    
 		<choose>
 	      <if is-numeric="edition">
-		    <text variable="edition" />
+		    <text variable="edition" prefix="，" />
 			<text term="edition" form="short" />
 		  </if>
 		  <else>
-		    <text variable="edition" />
+		    <text variable="edition" prefix="，" />
 		  </else>
         </choose>
 	  </else-if>
@@ -1827,7 +1827,7 @@
   </citation>
   <bibliography second-field-align="flush" et-al-min="6" et-al-use-first="2">
     <sort>
-      <key macro="author" />
+      <key variable="author" />
       <key variable="issued" sort="descending"/>
     </sort>
     <layout locale="en">
