@@ -66,7 +66,7 @@
     </date>
      <terms>
       <term name="article-locator" form="short">條</term>  <!-- 《宪法》第十八条翻译为“Article 18” -->
-      <term name="book" form="short">編</term>  <!-- 中國大陸《民法典》第一编翻译为“Book One”（按：全國法規資料庫的「編」是翻譯成 Part ，不過由於臺灣文獻引註似較少使用到某法規某編章節，此部分暫時不予調整。） -->
+      <term name="book" form="short">編</term>  <!-- 中國大陸《民法典》第一编翻译为“Book One”（按：全國法規資料庫的「編」是譯成 Part ，不過由於臺灣文獻引註似較少使用到某法規某編章節，此部分暫時不予調整。） -->
       <term name="accessed">最後瀏覽日</term>
       <term name="compiler">整理</term>
       <term name="compiler" form="short">整理</term>
@@ -1807,6 +1807,7 @@
   <macro name="citation-number">
     <text variable="citation-number" suffix="."/>
   </macro>
+
   <!-- 作者人数为两人或者三人的，一一列明。 -->
   <!-- 作者人数众多，不便全部列明的，可以根据情况列 1-2 个，后面加“等”。 -->
   <citation et-al-min="4" et-al-use-first="2">
@@ -1826,29 +1827,37 @@
       <text macro="citation-layout-zh"/>
     </layout>
   </citation>
-  <bibliography second-field-align="flush" et-al-min="6" et-al-use-first="2">
+
+  <!-- 參考文獻之輸出格式 -->
+  <bibliography 
+    hanging-indent="true" 
+    indent="2em" 
+    et-al-min="6" 
+    et-al-use-first="2"
+  >
     <sort>
+      <key variable="number-of-pages" /><!-- 因該欄位鮮少使用，此處擬供填寫作者姓氏筆畫之用。 -->
       <key variable="author" />
-      <key variable="issued" sort="descending"/>
+      <key variable="issued" sort="ascending"/>
     </sort>
     <layout locale="en">
-      <text macro="citation-number"/>
+      <!-- <text macro="citation-number" /> -->
       <text macro="source-en" suffix="."/>
     </layout>
     <layout locale="de">
-      <text macro="citation-number"/>
+      <!-- <text macro="citation-number" /> -->
       <text macro="source-de" suffix="."/>
     </layout>
     <layout locale="fr">
-      <text macro="citation-number"/>
+      <!-- <text macro="citation-number" /> -->
       <text macro="source-fr" suffix="."/>
     </layout>
     <layout locale="ja">
-      <text macro="citation-number"/>
+      <!-- <text macro="citation-number" /> -->
       <text macro="source-ja" suffix="。"/>
     </layout>
     <layout>
-      <text macro="citation-number"/>
+      <!-- <text macro="citation-number" /> -->
       <text macro="source-zh" suffix="。"/>
     </layout>
   </bibliography>
