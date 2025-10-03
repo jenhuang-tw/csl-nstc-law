@@ -996,7 +996,7 @@
   </macro>
   <!-- 其他贡献者(翻译、 整理、校对) -->
   <macro name="secondary-contributors-en">
-    <names variable="translator" delimiter=", ">
+    <names variable="translator" prefix="（" suffix="）" delimiter=", ">
       <label form="verb" suffix=" "/>
       <name initialize="false" and="symbol" delimiter=", " delimiter-precedes-last="never"/>
       <substitute>
