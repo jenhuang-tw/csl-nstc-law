@@ -12,9 +12,9 @@ The CSL file in this project is adapted from the "法学引注手册（多语言
 
 本專案的 CSL 檔案，是基於 Zeping Lee 開發的「法学引注手册（多语言）」 CSL 檔案（採用 CC BY-SA 3.0 授權）修改而成，採用 CC BY-SA 4.0 授權。
 
-Currently, this project only supports citation formatting for Chinese references. Citation formats for English, Japanese, German, and French references remain unchanged and follow the original 法学引注手册（多语言） style.
+Currently, this project only supports citation formatting for Chinese references. Citation formats for English, Japanese, German, and French references remain unchanged and follow the original 法学引注手册（多语言） style. It should be noted in particular that while the English version of 法学引注手册（多语言） largely follows The Bluebook, the NSTC format is not entirely consistent with The Bluebook.
 
-本專案目前僅支持中文文獻引註，英、日、德、法引註格式仍依「法学引注手册（多语言）」版本，尚未修改。
+本專案目前僅支持中文文獻引註，英、日、德、法引註格式仍依「法学引注手册（多语言）」版本，尚未修改。尤其需要注意的是，該格式的英文版基本上參考 Bluebook，但國科會格式與 Bluebook 並非完全一致。
 
 If you find any formatting errors or have suggestions for improvement, please open an issue or submit a pull request.
 
