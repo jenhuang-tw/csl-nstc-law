@@ -834,21 +834,10 @@
       </else-if>
       <else-if type="report">
         <group delimiter="，">
-          <text macro="author-zh"/>
-            <text macro="title-zh"/>
-            <group>
-              <text macro="issuance-zh"/>
-              <choose>
-                <if variable="event-title">
-                  <!-- 63.2) 引用全国人大及其常委会通过的法律性质的决定 -->
-                  <group>
-                    <text value="在"/>
-                    <text variable="event-title"/>
-                    <text value="上"/>
-                  </group>
-                </if>
-              </choose>
-            </group>
+          <text macro="author-zh"/><!-- 公報全稱，例如「立法院公報」-->
+          <text macro="title-zh"/><!-- 公報號次／卷期冊，例如「71卷101期」、「113卷87期，2冊」、「7065號」-->
+          <text macro="locator-zh"/><!-- 頁數-->
+          <text macro="issuance-zh" /><!-- 出版年 -->
         </group>
       </else-if>
       <!-- 65. 引用国家标准 -->
