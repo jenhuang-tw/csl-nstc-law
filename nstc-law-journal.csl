@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" initialize-with=". " demote-non-dropping-particle="sort-only" default-locale="zh-TW">
   <info>
-    <title>法學期刊引註格式</title>
-    <id>https://www.zotero-chinese.com/styles/法學期刊引註格式</id>
-    <link href="https://www.zotero-chinese.com/styles/法學期刊引註格式" rel="self"/>
+    <title>法學期刊引註格式凡例</title>
+    <id>https://www.zotero-chinese.com/styles/法學期刊引註格式凡例</id>
+    <link href="https://www.zotero-chinese.com/styles/法學期刊引註格式凡例" rel="self"/>
     <link href="http://www.zotero.org/styles/法学引注手册（多语言）" rel="template"/>
     <link href="http://www.zotero.org/styles/bluebook-law-review" rel="template"/>
     <link href="https://www.pup.cn/bookDetail?id=910497ac470d4880ab56c6709bb1d7c5" rel="documentation"/>
@@ -18,7 +18,7 @@
     </contributor>
     <category citation-format="note"/>
     <category field="law"/>
-    <summary>1. 預設文獻語言是中文，若為其它語言文獻，請在 `language` 欄位填寫對應的語言代碼（en, ja, de, fr）。2. 各類型文獻的欄位資料填寫方式，可以參考 Zotero 社群「Chinese CSL development」的「法学引注手册」分類，其中有收錄《手册》的範例文獻資料。3. 中國大陸最高人民法院发布的指导性案例，需要连同“案例编号”、”发布时间”（注意区别于”裁判时间”）分别在填写在 `Extra` 中的 `Series`, `Series Number` 和 `available-date` 字段。4. 中國大陸《最高人民法院公报》上的案例，发布时间和期号需要分别填写在 `Extra` 的 `available-date` 和 `Issue` 字段。5. 實務見解的書類名稱，請填寫於 `Extra` 的 `Genre` 的欄位，比如 `Genre: 訴願決定書`、`Genre: 刑事判決`。6. 英国案例和法文文献的支持尚不完善，需要测试反馈。7. 德文的“法律评注”使用 book section 文献类型，并将标题留空。8. 德文的“祝贺文集“与“纪念文集”使用 book section 文献类型，但需要将书名填在 `Series` 字段。9. 國科會人文處似未公告統一版本，此檔案係依臺北大學法學論叢版本製作。</summary>
+    <summary>1. 預設文獻語言是中文，若為其它語言文獻，請在 `language` 欄位填寫對應的語言代碼（en, ja, de, fr）。2. 各類型文獻的欄位資料填寫方式，可以參考 Zotero 社群「Chinese CSL development」的「法学引注手册」分類，其中有收錄《手册》的範例文獻資料。3. 中國大陸最高人民法院发布的指导性案例，需要连同“案例编号”、”发布时间”（注意区别于”裁判时间”）分别在填写在 `Extra` 中的 `Series`, `Series Number` 和 `available-date` 字段。4. 中國大陸《最高人民法院公报》上的案例，发布时间和期号需要分别填写在 `Extra` 的 `available-date` 和 `Issue` 字段。5. 實務見解的書類名稱，請填寫於 `Extra` 的 `Genre` 的欄位，比如 `Genre: 訴願決定書`、`Genre: 刑事判決`。6. 英国案例和法文文献的支持尚不完善，需要测试反馈。7. 德文的“法律评注”使用 book section 文献类型，并将标题留空。8. 德文的“祝贺文集“与“纪念文集”使用 book section 文献类型，但需要将书名填在 `Series` 字段。9. 凡例係四大 TSCII 第一級法學期刊共識，惟未有共通發布之權威版本，此檔案係依臺北大學法學論叢版本製作。</summary>
     <updated>2025-08-19T15:48:00+08:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/4.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 License</rights>
   </info>
@@ -1527,7 +1527,7 @@
             <!-- 采用期刊卷数和文章首页页码分别标注在期刊名称前后的，文章特定内容的页码前不加 p.，逗号后直接写页码。 -->
             <text variable="locator"/>
           </if>
-          <else-if type="article-newspaper">
+          <else-if type="article-newspaper book" match="any">
             <text term="at" suffix=" "/>
             <text variable="locator"/>
           </else-if>
@@ -1717,16 +1717,22 @@
         <choose>
           <if disambiguate="true">
             <group delimiter=", ">
-              <text variable="first-reference-note-number" prefix="Supra note "/>
               <text macro="author-short-en"/>
+              <group>
+                <text value="supra " font-style="italic" />
+                <text variable="first-reference-note-number" prefix="note "/>
+              </group>
               <text variable="title" form="short"/>
               <text macro="locator-en"/>
             </group>
           </if>
           <else>
             <group delimiter=", ">
-              <text variable="first-reference-note-number" prefix="Supra note "/>
               <text macro="author-short-en"/>
+              <group>
+                <text value="supra " font-style="italic" />
+                <text variable="first-reference-note-number" prefix="note "/>
+              </group>
               <text macro="locator-en"/>
             </group>
           </else>
@@ -1766,12 +1772,13 @@
     <choose>
       <if position="ibid">
         <group delimiter="，">
-		  <text macro="author-short-zh" />
-		  <group>
-		    <text term="op-cit"/>
-			<text variable="first-reference-note-number" />
-	      </group>
-		</group>
+		      <text macro="author-short-zh" />
+		      <group>
+		        <text term="op-cit"/>
+			      <text variable="first-reference-note-number" />
+	        </group>
+          <text macro="locator-zh" /><!-- 緊鄰者亦可能頁數不同 -->
+		    </group>
       </if>
       <else-if position="subsequent">
         <group delimiter="，">
